@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div{
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button{
+    background-color: rgb(247, 72, 19);
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+}
+p{
+    margin-top: 20px;
+    color: brown;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-weight: 700;
+}
