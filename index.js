@@ -1,4 +1,3 @@
-
 // let myLeads = `["www.youtube.com"]`
 // myLeads = JSON.parse(myLeads);
 // myLeads.push("www.hello.com");
@@ -10,6 +9,7 @@ const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
 const deleteBtn =document.getElementById("delete-btn")
+const tabBtn =document.getElementById("tab-btn");
 
 const leadsFromLocal=JSON.parse(localStorage.getItem("myLeads")) // from string to array
 
@@ -38,6 +38,8 @@ function render(leads) {
   // ulEl.append(li);
 }
 
+/*-------enter link to array ---------*/
+
 inputBtn.addEventListener("click", ()=> {
   myLeads.push(inputEl.value)
   inputEl.value = ""
@@ -47,6 +49,30 @@ inputBtn.addEventListener("click", ()=> {
 
   console.log(localStorage.getItem("myLeads"));
 })
+
+/*---------------------- */
+
+/*---------------------- */
+tabBtn.addEventListener("click",()=>{
+//chrome.tabs is an API
+  // chrome.tabs.query({active:true , currentWindow: true},function(tabs){
+  // })
+  chrome.tabs.query({active:true,currentWindow:true},function(tabs){
+    
+    myLeads.push(tabs[0].url)
+    localStorage.setItem("myLeads",JSON.stringify(myLeads))
+    render(myLeads)
+
+  })
+
+})
+
+
+
+/*---------------------- */
+
+
+/*--------delete from the array-------------- */
 
 deleteBtn.addEventListener("dblclick",()=>{
    console.log("clicked");
@@ -59,6 +85,7 @@ deleteBtn.addEventListener("dblclick",()=>{
 // let name =localStorage.getItem("myname");
 //  console.log(name);
 // localStorage.clear();
+
 
 
 
